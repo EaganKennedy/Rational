@@ -43,3 +43,18 @@ TEST(ValueCtor, Init) {
 
 	ASSERT_THROW(r = Rational(1, 0), std::domain_error);
 }
+
+TEST(CompareOp, Equality) {
+	Rational lhs{ 1,2 };
+	Rational rhs{ 1,2 };
+	
+	ASSERT_EQ(lhs, rhs);
+}
+
+TEST(MathOps, Addition) {
+	Rational lhs{ 1,2 };
+	Rational rhs{ 1,3 };
+	Rational answer{ 5 , 6 };
+
+	ASSERT_EQ(lhs + rhs, answer);
+}

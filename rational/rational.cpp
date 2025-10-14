@@ -41,3 +41,19 @@ void Rational::validate(fraction newRational) {
 		throw std::domain_error("Denominator initialized to 0");
 	}
 }
+
+bool operator==(Rational lhs, Rational rhs){
+	if (lhs.num() == rhs.num() && lhs.den() == rhs.den()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+Rational operator+(Rational lhs, Rational rhs)
+{
+	int newNum = lhs.num() * rhs.den() + rhs.num() * lhs.den();
+	int newDen = lhs.den() * rhs.den();
+	return Rational(newNum, newDen);
+}
