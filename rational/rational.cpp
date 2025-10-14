@@ -18,7 +18,6 @@ int Rational::num() const{
 void Rational::num(int nmr) {
 	fraction newRational = { nmr, rational.DNMR };
 
-	validate(newRational);
 	update(newRational);
 }
 
@@ -72,6 +71,9 @@ Rational operator*(Rational lhs, Rational rhs){
 }
 
 Rational operator/(Rational lhs, Rational rhs){
+	if (rhs.num() == 0) {
+		throw std::domain_error("Attempted division by 0");
+	}
 	int newNum = lhs.num() * rhs.den();
 	int newDen = lhs.den() * rhs.num();
 	return Rational(newNum, newDen);

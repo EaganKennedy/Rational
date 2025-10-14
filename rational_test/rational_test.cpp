@@ -19,8 +19,8 @@ TEST(Setters, Setting) {
 
 	ASSERT_NO_THROW(r.num(3));
 	ASSERT_NO_THROW(r.den(9));
+	ASSERT_THROW(r.den(0), std::domain_error);
 }
-
 TEST(Setters, Getting) {
 	Rational r;
 
@@ -58,7 +58,6 @@ TEST(MathOps, Addition) {
 
 	ASSERT_EQ(lhs + rhs, answer);
 }
-
 TEST(MathOps, Subtraction) {
 	Rational lhs{ 5 , 6 };
 	Rational rhs{ 1,3 };
@@ -66,7 +65,6 @@ TEST(MathOps, Subtraction) {
 
 	ASSERT_EQ(lhs - rhs, answer);
 }
-
 TEST(MathOps, Multiplication) {
 	Rational lhs{ 2,3 };
 	Rational rhs{ 3,4 };
@@ -74,11 +72,11 @@ TEST(MathOps, Multiplication) {
 
 	ASSERT_EQ(lhs * rhs, answer);
 }
-
 TEST(MathOps, Dvision) {
 	Rational lhs{ 1,2 };
 	Rational rhs{ 1,3 };
 	Rational answer{ 3,2 };
 
 	ASSERT_EQ(lhs / rhs, answer);
+	ASSERT_THROW(lhs / (rhs - rhs), std::domain_error);
 }

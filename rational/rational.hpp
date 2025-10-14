@@ -45,3 +45,4 @@ Rational operator +(Rational lhs, Rational rhs);
 Rational operator -(Rational lhs, Rational rhs);
 Rational operator *(Rational lhs, Rational rhs);
 Rational operator /(Rational lhs, Rational rhs);
+
