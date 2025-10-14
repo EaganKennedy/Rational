@@ -23,7 +23,7 @@ TEST(Setters, Getting) {
 	ASSERT_NO_THROW(r.den(9));
 
 	ASSERT_EQ(r.num(), 1);
-	ASSERT_EQ(r.num(), 3);
+	ASSERT_EQ(r.den(), 3);
 }
 
 TEST(ValueCtor, Init) {
