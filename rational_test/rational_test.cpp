@@ -58,3 +58,11 @@ TEST(MathOps, Addition) {
 
 	ASSERT_EQ(lhs + rhs, answer);
 }
+
+TEST(MathOps, Subtraction) {
+	Rational lhs{ 5 , 6 };
+	Rational rhs{ 1,3 };
+	Rational answer{ 1,2 };
+
+	ASSERT_EQ(lhs - rhs, answer);
+}
