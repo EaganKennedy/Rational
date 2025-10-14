@@ -41,7 +41,7 @@ void Rational::validate(fraction newRational) {
 	}
 }
 
-bool operator==(Rational lhs, Rational rhs){
+bool operator==(Rational const& lhs, Rational const& rhs) {
 	if (lhs.num() == rhs.num() && lhs.den() == rhs.den()) {
 		return true;
 	}
@@ -50,27 +50,26 @@ bool operator==(Rational lhs, Rational rhs){
 	}
 }
 
-Rational operator+(Rational lhs, Rational rhs)
+Rational operator+(Rational const& lhs, Rational const& rhs)
 {
 	int newNum = lhs.num() * rhs.den() + rhs.num() * lhs.den();
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
 
-Rational operator-(Rational lhs, Rational rhs)
-{
+Rational operator-(Rational const& lhs, Rational const& rhs){
 	int newNum = lhs.num() * rhs.den() - rhs.num() * lhs.den();
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
 
-Rational operator*(Rational lhs, Rational rhs){
+Rational operator*(Rational const& lhs, Rational const& rhs) {
 	int newNum = lhs.num() * rhs.num();
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
 
-Rational operator/(Rational lhs, Rational rhs){
+Rational operator/(Rational const& lhs, Rational const& rhs) {
 	if (rhs.num() == 0) {
 		throw std::domain_error("Attempted division by 0");
 	}

@@ -80,3 +80,4 @@ TEST(MathOps, Dvision) {
 	ASSERT_EQ(lhs / rhs, answer);
 	ASSERT_THROW(lhs / (rhs - rhs), std::domain_error);
 }
+

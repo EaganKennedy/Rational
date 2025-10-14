@@ -39,10 +39,9 @@ private:
 	fraction rational;
 };
 
-bool operator ==(Rational lhs, Rational rhs);
+bool operator ==(Rational const& lhs, Rational const& rhs);
 
-Rational operator +(Rational lhs, Rational rhs);
-Rational operator -(Rational lhs, Rational rhs);
-Rational operator *(Rational lhs, Rational rhs);
-Rational operator /(Rational lhs, Rational rhs);
-
+Rational operator +(Rational const& lhs, Rational const& rhs);
+Rational operator -(Rational const& lhs, Rational const& rhs);
+Rational operator *(Rational const& lhs, Rational const& rhs);
+Rational operator /(Rational const& lhs, Rational const& rhs);
