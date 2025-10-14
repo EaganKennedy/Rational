@@ -10,12 +10,19 @@ public:
 	Rational(int NMR, int DNMR);
 
 	int num();
-	void num(int NMR);
+	void num(int nmr);
 
 	int den();
-	void den(int DNMR);
+	void den(int dnmr);
 
 private:
+	void inline update(fraction newRational) {
+		rational = newRational;
+
+		int gcf = commonFactor(rational.NMR, rational.DNMR);
+		rational.NMR = rational.NMR / gcf;
+		rational.DNMR = rational.DNMR / gcf;
+	}
 	int inline commonFactor(int a, int b) {
 		if (a % b == 0) {
 			return b;

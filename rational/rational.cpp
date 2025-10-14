@@ -3,13 +3,32 @@
 
 Rational::Rational() : Rational(0,1){
 }
-
 Rational::Rational(int NMR, int DNMR) {
 	fraction newRational = { NMR, DNMR };
 
 	validate(newRational);
 
-	rational = newRational;
+	update(newRational);
+}
+
+int Rational::num() {
+	return rational.NMR;
+}
+void Rational::num(int nmr) {
+	fraction newRational = { nmr, rational.DNMR };
+
+	validate(newRational);
+	update(newRational);
+}
+
+int Rational::den() {
+	return rational.DNMR;
+}
+void Rational::num(int dnmr) {
+	fraction newRational = { rational.NMR, dnmr };
+
+	validate(newRational);
+	update(newRational);
 }
 
 void Rational::validate(fraction newRational) {
