@@ -95,6 +95,13 @@ TEST(MathAssignOps, Subtraction) {
 	Rational answer{ 1,2 };
 
 	lhs -= rhs;
+	ASSERT_EQ(lhs, answer);
+}
+TEST(MathAssignOps, Multiplication) {
+	Rational lhs{ 2,3 };
+	Rational rhs{ 3,4 };
+	Rational answer{ 1,2 };
 
+	lhs *= rhs;
 	ASSERT_EQ(lhs, answer);
 }
