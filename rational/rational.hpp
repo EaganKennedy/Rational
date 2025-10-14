@@ -49,4 +49,4 @@ Rational operator /(Rational const& lhs, Rational const& rhs);
 Rational operator +=(Rational& dst, Rational const& src);
 Rational operator -=(Rational& dst, Rational const& src);
 Rational operator *=(Rational& dst, Rational const& src);
-//Rational operator /=(Rational& dst, Rational const& src);
+Rational operator /=(Rational& dst, Rational const& src);

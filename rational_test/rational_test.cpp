@@ -105,3 +105,12 @@ TEST(MathAssignOps, Multiplication) {
 	lhs *= rhs;
 	ASSERT_EQ(lhs, answer);
 }
+TEST(MathAssignOps, Division) {
+	Rational lhs{ 1,2 };
+	Rational rhs{ 1,3 };
+	Rational answer{ 3,2 };
+
+	lhs /= rhs;
+	ASSERT_EQ(lhs, answer);
+	ASSERT_THROW(lhs / (rhs - rhs), std::domain_error);
+}

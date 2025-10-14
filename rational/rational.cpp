@@ -79,13 +79,15 @@ Rational operator+=(Rational& dst, Rational const& src){
 	dst = dst + src;
 	return dst;
 }
-
 Rational operator-=(Rational& dst, Rational const& src){
 	dst = dst - src;
 	return dst;
 }
-
 Rational operator*=(Rational& dst, Rational const& src){
 	dst = dst * src;
+	return dst;
+}
+Rational operator/=(Rational& dst, Rational const& src){
+	dst = dst / src;
 	return dst;
 }
