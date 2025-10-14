@@ -56,19 +56,16 @@ Rational operator+(Rational const& lhs, Rational const& rhs)
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
-
 Rational operator-(Rational const& lhs, Rational const& rhs){
 	int newNum = lhs.num() * rhs.den() - rhs.num() * lhs.den();
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
-
 Rational operator*(Rational const& lhs, Rational const& rhs) {
 	int newNum = lhs.num() * rhs.num();
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
-
 Rational operator/(Rational const& lhs, Rational const& rhs) {
 	if (rhs.num() == 0) {
 		throw std::domain_error("Attempted division by 0");
@@ -76,4 +73,9 @@ Rational operator/(Rational const& lhs, Rational const& rhs) {
 	int newNum = lhs.num() * rhs.den();
 	int newDen = lhs.den() * rhs.num();
 	return Rational(newNum, newDen);
+}
+
+Rational operator+=(Rational& dst, Rational const& src){
+	dst = dst + src;
+	return dst;
 }
