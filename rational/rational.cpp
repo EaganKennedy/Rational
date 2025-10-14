@@ -64,3 +64,9 @@ Rational operator-(Rational lhs, Rational rhs)
 	int newDen = lhs.den() * rhs.den();
 	return Rational(newNum, newDen);
 }
+
+Rational operator*(Rational lhs, Rational rhs){
+	int newNum = lhs.num() * rhs.num();
+	int newDen = lhs.den() * rhs.den();
+	return Rational(newNum, newDen);
+}
