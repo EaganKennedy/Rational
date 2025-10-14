@@ -24,7 +24,7 @@ void Rational::num(int nmr) {
 int Rational::den() {
 	return rational.DNMR;
 }
-void Rational::num(int dnmr) {
+void Rational::den(int dnmr) {
 	fraction newRational = { rational.NMR, dnmr };
 
 	validate(newRational);
