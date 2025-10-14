@@ -74,3 +74,11 @@ TEST(MathOps, Multiplication) {
 
 	ASSERT_EQ(lhs * rhs, answer);
 }
+
+TEST(MathOps, Dvision) {
+	Rational lhs{ 1,2 };
+	Rational rhs{ 1,3 };
+	Rational answer{ 3,2 };
+
+	ASSERT_EQ(lhs / rhs, answer);
+}
