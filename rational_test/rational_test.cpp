@@ -1,5 +1,10 @@
 ﻿#include "gtest/gtest.h"
 #include "rational.hpp"
+#include <string>
+#include <sstream>
+
+using std::string;
+using std::ostringstream;
 
 TEST(DefaultCtor, Init) {
 	ASSERT_NO_THROW(Rational r);
@@ -24,6 +29,10 @@ TEST(Setters, Getting) {
 
 	ASSERT_EQ(r.num(), 1);
 	ASSERT_EQ(r.den(), 3);
+	
+	ostringstream sout;
+	r.print(sout);
+	ASSERT_EQ(sout.str(), "1/3");
 }
 
 TEST(ValueCtor, Init) {

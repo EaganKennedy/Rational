@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <iostream>
 
 class Rational {
 		struct fraction {
@@ -9,11 +10,13 @@ public:
 	Rational();
 	Rational(int NMR, int DNMR);
 
-	int num();
+	int num() const;
 	void num(int nmr);
 
-	int den();
+	int den() const;
 	void den(int dnmr);
+
+	void print(std::ostream& out) const;
 
 private:
 	void inline update(fraction newRational) {
