@@ -52,9 +52,6 @@ void Rational::validate(fraction newRational) {
 	if (newRational.DNMR == 0) {
 		throw std::domain_error("Denominator initialized to 0");
 	}
-	if (newRational.DNMR < 0) {
-		throw std::domain_error("Denominator initialized to negative integer");
-	}
 }
 
 int Rational::doubleBase = 1000000;
