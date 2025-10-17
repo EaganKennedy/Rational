@@ -5,6 +5,7 @@
 
 using std::ostream;
 using std::istream;
+using std::strong_ordering;
 
 Rational::Rational() : Rational(0,1){
 }
@@ -73,7 +74,7 @@ int inline Rational::commonFactor(int a, int b) {
 		return commonFactor(b, a % b);
 	}
 }
-void Rational::validate(fraction newRational) {
+void inline Rational::validate(fraction newRational) {
 	if (newRational.DNMR == 0) {
 		throw std::domain_error("Denominator initialized to 0");
 	}
@@ -87,10 +88,11 @@ bool operator==(Rational const& lhs, Rational const& rhs) {
 bool operator!=(Rational const& lhs, Rational const& rhs){
 	return !(lhs == rhs);
 }
-std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs)
+strong_ordering operator<=>(Rational const& lhs, Rational const& rhs)
 {
 	return (lhs.num() * rhs.den()) <=> (rhs.num() * lhs.den());
 }
+
 Rational operator+(Rational const& lhs, Rational const& rhs)
 {
 	int newNum = lhs.num() * rhs.den() + rhs.num() * lhs.den();
@@ -159,7 +161,7 @@ ostream& operator<<(ostream& out, Rational const& rhs){
 	rhs.print(out);
 	return out;
 }
-std::istream& operator>>(std::istream& in, Rational& rhs) {
+istream& operator>>(istream& in, Rational& rhs) {
 	int NMR;
 	int DNMR;
 	char S;

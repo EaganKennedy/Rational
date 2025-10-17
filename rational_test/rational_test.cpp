@@ -20,6 +20,8 @@ TEST(Setters, Setting) {
 
 	ASSERT_NO_THROW(r.num(3));
 	ASSERT_NO_THROW(r.den(9));
+	ASSERT_NO_THROW(r.num(-3));
+	ASSERT_NO_THROW(r.num(-9));
 	ASSERT_THROW(r.den(0), std::domain_error);
 }
 TEST(Setters, Getting) {
@@ -189,6 +191,16 @@ TEST(ConvertOps, TDouble) {
 	double rhs = .5;
 
 	ASSERT_EQ(lhs, rhs);
+}
+TEST(ConvertOps, Int) {
+	ASSERT_NO_THROW(Rational r = 4);
+	Rational r = 4;
+	ASSERT_NO_THROW(int i = (int(r)));
+}
+TEST(ConvertOps, Double) {
+	ASSERT_NO_THROW(Rational r = 0.3);
+	Rational r = 0.3;
+	ASSERT_NO_THROW(double i = (double(r)));
 }
 
 TEST(IoOps, O) {
