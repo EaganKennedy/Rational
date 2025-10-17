@@ -10,6 +10,7 @@ if (POLICY CMP0141)
 endif()
 
 project ("Rational")
+set(CMAKE_CXX_STANDARD 20)
 
 # Include sub-projects.
 

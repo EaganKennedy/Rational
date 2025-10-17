@@ -47,6 +47,9 @@ bool operator==(Rational const& lhs, Rational const& rhs) {
 bool operator!=(Rational const& lhs, Rational const& rhs){
 	return !(lhs == rhs);
 }
+std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs){
+	return (lhs.num() * rhs.den()) <=> (rhs.num() * lhs.den());
+}
 
 Rational operator+(Rational const& lhs, Rational const& rhs)
 {
@@ -107,4 +110,5 @@ Rational operator--(Rational& dst, int){
 	dst.num(dst.num() - dst.den());
 	return old;
 }
+
 

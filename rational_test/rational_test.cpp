@@ -56,6 +56,30 @@ TEST(CompareOp, NEquality) {
 
 	ASSERT_NE(lhs, rhs);
 }
+TEST(CompareOp, Lesser) {
+	Rational lhs(1, 3);
+	Rational rhs(1, 2);
+
+	ASSERT_LT(lhs, rhs);
+}
+TEST(CompareOp, Greater) {
+	Rational lhs(1, 2);
+	Rational rhs(1, 3);
+
+	ASSERT_GT(lhs, rhs);
+}
+TEST(CompareO, LesserE) {
+	Rational lhs(1, 3);
+	Rational rhs(1, 3);
+
+	ASSERT_LE(lhs, rhs);
+}
+TEST(CompareOp, GreaterE) {
+	Rational lhs(1, 3);
+	Rational rhs(1, 3);
+
+	ASSERT_GE(lhs, rhs);
+}
 
 TEST(MathOps, Addition) {
 	Rational lhs{ 1,2 };

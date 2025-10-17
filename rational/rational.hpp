@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <iostream>
+#include <compare>
 
 class Rational {
 		struct fraction {
@@ -41,6 +42,7 @@ private:
 
 bool operator ==(Rational const& lhs, Rational const& rhs);
 bool operator !=(Rational const& lhs, Rational const& rhs);
+std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs);
 
 Rational operator +(Rational const& lhs, Rational const& rhs);
 Rational operator -(Rational const& lhs, Rational const& rhs);
