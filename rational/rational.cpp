@@ -51,6 +51,28 @@ void Rational::print(std::ostream& out) const{
 	out << num() << "/" << den();
 }
 
+void inline Rational::update(fraction newRational) {
+	rational = newRational;
+
+	int gcf = commonFactor(rational.NMR, rational.DNMR);
+	rational.NMR = rational.NMR / gcf;
+	rational.DNMR = rational.DNMR / gcf;
+
+	if (rational.DNMR < 0) {
+		rational.NMR = -rational.NMR;
+		rational.DNMR = -rational.DNMR;
+	}
+}
+int inline Rational::commonFactor(int a, int b) {
+	a = abs(a);
+	b = abs(b);
+	if (a % b == 0) {
+		return b;
+	}
+	else {
+		return commonFactor(b, a % b);
+	}
+}
 void Rational::validate(fraction newRational) {
 	if (newRational.DNMR == 0) {
 		throw std::domain_error("Denominator initialized to 0");
