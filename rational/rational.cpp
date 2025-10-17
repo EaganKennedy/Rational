@@ -99,19 +99,19 @@ Rational operator-(Rational const& lhs){
 
 Rational& operator+=(Rational& dst, Rational const& src){
 	dst = dst + src;
-	return dst&;
+	return dst;
 }
 Rational& operator-=(Rational& dst, Rational const& src){
 	dst = dst - src;
-	return dst&;
+	return dst;
 }
 Rational& operator*=(Rational& dst, Rational const& src){
 	dst = dst * src;
-	return dst&;
+	return dst;
 }
 Rational& operator/=(Rational& dst, Rational const& src){
 	dst = dst / src;
-	return dst&;
+	return dst;
 }
 
 Rational& operator++(Rational& dst){
