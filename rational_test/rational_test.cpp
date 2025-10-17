@@ -110,6 +110,13 @@ TEST(MathOps, Dvision) {
 	ASSERT_EQ(lhs / rhs, answer);
 	ASSERT_THROW(lhs / (rhs - rhs), std::domain_error);
 }
+TEST(MathOps, Flip) {
+	Rational r(1, 2);
+	Rational answer(-1, 2);
+	ASSERT_THROW(Rational test(1, -1), std::domain_error);
+	r = -r;
+	ASSERT_EQ(r, answer);
+}
 
 TEST(MathAssignOps, Addition) {
 	Rational lhs{ 1,2 };

@@ -39,6 +39,9 @@ void Rational::validate(fraction newRational) {
 	if (newRational.DNMR == 0) {
 		throw std::domain_error("Denominator initialized to 0");
 	}
+	if (newRational.DNMR < 0) {
+		throw std::domain_error("Denominator initialized to negative integer");
+	}
 }
 
 bool operator==(Rational const& lhs, Rational const& rhs) {
@@ -47,7 +50,7 @@ bool operator==(Rational const& lhs, Rational const& rhs) {
 bool operator!=(Rational const& lhs, Rational const& rhs){
 	return !(lhs == rhs);
 }
-std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs){
+std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs) {
 	return (lhs.num() * rhs.den()) <=> (rhs.num() * lhs.den());
 }
 
@@ -74,6 +77,9 @@ Rational operator/(Rational const& lhs, Rational const& rhs) {
 	int newNum = lhs.num() * rhs.den();
 	int newDen = lhs.den() * rhs.num();
 	return Rational(newNum, newDen);
+}
+Rational operator-(Rational const& lhs){
+	return Rational{ -lhs.num(), lhs.den() };
 }
 
 Rational operator+=(Rational& dst, Rational const& src){
@@ -110,5 +116,4 @@ Rational operator--(Rational& dst, int){
 	dst.num(dst.num() - dst.den());
 	return old;
 }
-
 
