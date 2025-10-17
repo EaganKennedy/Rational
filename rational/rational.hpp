@@ -33,6 +33,8 @@ private:
 		rational.DNMR = rational.DNMR / gcf;
 	}
 	int inline commonFactor(int a, int b) {
+		a = abs(a);
+		b = abs(b);
 		if (a % b == 0) {
 			return b;
 		}
@@ -61,7 +63,11 @@ Rational operator +=(Rational& dst, Rational const& src);
 Rational operator -=(Rational& dst, Rational const& src);
 Rational operator *=(Rational& dst, Rational const& src);
 Rational operator /=(Rational& dst, Rational const& src);
+
 Rational& operator++(Rational& dst);
 Rational& operator--(Rational& dst);
 Rational operator++(Rational& dst, int);
 Rational operator--(Rational& dst, int);
+
+std::ostream& operator<<(std::ostream& out, Rational const& rhs );
+std::istream& operator>>(std::istream& in, Rational& rhs);

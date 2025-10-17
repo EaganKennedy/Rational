@@ -1,6 +1,10 @@
 ﻿#include "rational.hpp"
 #include <stdexcept>
 #include <iostream>
+#include <string>
+
+using std::ostream;
+using std::istream;
 
 Rational::Rational() : Rational(0,1){
 }
@@ -19,7 +23,6 @@ Rational::Rational(double d) : Rational(d * doubleBase, doubleBase){
 Rational::operator int() const{
 	return num() / den();
 }
-
 Rational::operator double() const{
 	double d = num();
 	return d / den();
@@ -62,10 +65,10 @@ bool operator==(Rational const& lhs, Rational const& rhs) {
 bool operator!=(Rational const& lhs, Rational const& rhs){
 	return !(lhs == rhs);
 }
-std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs) {
+std::strong_ordering operator<=>(Rational const& lhs, Rational const& rhs)
+{
 	return (lhs.num() * rhs.den()) <=> (rhs.num() * lhs.den());
 }
-
 Rational operator+(Rational const& lhs, Rational const& rhs)
 {
 	int newNum = lhs.num() * rhs.den() + rhs.num() * lhs.den();
@@ -110,6 +113,7 @@ Rational operator/=(Rational& dst, Rational const& src){
 	dst = dst / src;
 	return dst;
 }
+
 Rational& operator++(Rational& dst){
 	dst.num(dst.num() + dst.den());
 	return dst;
@@ -129,3 +133,23 @@ Rational operator--(Rational& dst, int){
 	return old;
 }
 
+ostream& operator<<(ostream& out, Rational const& rhs){
+	rhs.print(out);
+	return out;
+}
+std::istream& operator>>(std::istream& in, Rational& rhs) {
+	int NMR;
+	int DNMR;
+	char S;
+
+	in >> NMR >> S >> DNMR;
+
+	if (in && S == '/') {
+		rhs = Rational(NMR, DNMR);
+	}
+	else {
+		in.setstate(std::ios::failbit);
+	}
+
+	return in;
+}

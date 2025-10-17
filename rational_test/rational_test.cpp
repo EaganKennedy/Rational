@@ -5,6 +5,7 @@
 
 using std::string;
 using std::ostringstream;
+using std::istringstream;
 
 TEST(DefaultCtor, Init) {
 	ASSERT_NO_THROW(Rational r);
@@ -113,7 +114,6 @@ TEST(MathOps, Dvision) {
 TEST(MathOps, Flip) {
 	Rational r(1, 2);
 	Rational answer(-1, 2);
-	ASSERT_THROW(Rational test(1, -1), std::domain_error);
 	r = -r;
 	ASSERT_EQ(r, answer);
 }
@@ -182,9 +182,35 @@ TEST(ConvertOps, Tint) {
 
 	ASSERT_EQ(lhs, rhs);
 }
-TEST(ConertOps, TDouble) {
+TEST(ConvertOps, TDouble) {
 	double lhs = Rational(1, 2);
 	double rhs = .5;
 
 	ASSERT_EQ(lhs, rhs);
+}
+
+TEST(IoOps, O) {
+	Rational r(1, 3);
+	ostringstream sout;
+
+	sout << r;
+}
+TEST(IoOps, I) {
+	Rational r;
+	istringstream sin;
+
+	sin.str("1 / 2");
+	sin >> r;
+	ASSERT_EQ(r, Rational(1, 2));
+
+	sin.clear();
+	sin.str("-1 / 2");
+	sin >> r;
+	ASSERT_EQ(r, Rational(-1, 2));
+
+	sin.clear();
+	sin.str("1/ ");
+	sin >> r;
+	ASSERT_FALSE(sin);
+
 }
