@@ -97,21 +97,21 @@ Rational operator-(Rational const& lhs){
 	return Rational{ -lhs.num(), lhs.den() };
 }
 
-Rational operator+=(Rational& dst, Rational const& src){
+Rational& operator+=(Rational& dst, Rational const& src){
 	dst = dst + src;
-	return dst;
+	return dst&;
 }
-Rational operator-=(Rational& dst, Rational const& src){
+Rational& operator-=(Rational& dst, Rational const& src){
 	dst = dst - src;
-	return dst;
+	return dst&;
 }
-Rational operator*=(Rational& dst, Rational const& src){
+Rational& operator*=(Rational& dst, Rational const& src){
 	dst = dst * src;
-	return dst;
+	return dst&;
 }
-Rational operator/=(Rational& dst, Rational const& src){
+Rational& operator/=(Rational& dst, Rational const& src){
 	dst = dst / src;
-	return dst;
+	return dst&;
 }
 
 Rational& operator++(Rational& dst){
