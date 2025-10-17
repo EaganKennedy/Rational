@@ -31,6 +31,11 @@ private:
 		int gcf = commonFactor(rational.NMR, rational.DNMR);
 		rational.NMR = rational.NMR / gcf;
 		rational.DNMR = rational.DNMR / gcf;
+
+		if (rational.DNMR < 0) {
+			rational.NMR = -rational.NMR;
+			rational.DNMR = -rational.DNMR;
+		}
 	}
 	int inline commonFactor(int a, int b) {
 		a = abs(a);

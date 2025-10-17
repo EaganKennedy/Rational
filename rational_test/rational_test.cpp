@@ -41,6 +41,8 @@ TEST(ValueCtor, Init) {
 
 	ASSERT_EQ(r.num(), 1);
 	ASSERT_EQ(r.den(), 2);
+	Rational nr{ 1,-2 };
+	ASSERT_EQ(nr.num(), -1);
 
 	ASSERT_THROW(r = Rational(1, 0), std::domain_error);
 }
