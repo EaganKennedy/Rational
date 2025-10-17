@@ -42,12 +42,10 @@ void Rational::validate(fraction newRational) {
 }
 
 bool operator==(Rational const& lhs, Rational const& rhs) {
-	if (lhs.num() == rhs.num() && lhs.den() == rhs.den()) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return lhs.num() == rhs.num() && lhs.den() == rhs.den();
+}
+bool operator!=(Rational const& lhs, Rational const& rhs){
+	return !(lhs == rhs);
 }
 
 Rational operator+(Rational const& lhs, Rational const& rhs)
@@ -91,3 +89,22 @@ Rational operator/=(Rational& dst, Rational const& src){
 	dst = dst / src;
 	return dst;
 }
+Rational& operator++(Rational& dst){
+	dst.num(dst.num() + dst.den());
+	return dst;
+}
+Rational& operator--(Rational& dst){
+	dst.num(dst.num() - dst.den());
+	return dst;
+}
+Rational operator++(Rational& dst, int){
+	Rational old = dst;
+	dst.num(dst.num() + dst.den());
+	return old;
+}
+Rational operator--(Rational& dst, int){
+	Rational old = dst;
+	dst.num(dst.num() - dst.den());
+	return old;
+}
+

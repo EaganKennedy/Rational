@@ -50,6 +50,12 @@ TEST(CompareOp, Equality) {
 	
 	ASSERT_EQ(lhs, rhs);
 }
+TEST(CompareOp, NEquality) {
+	Rational lhs{ 1,2 };
+	Rational rhs{ 1,3 };
+
+	ASSERT_NE(lhs, rhs);
+}
 
 TEST(MathOps, Addition) {
 	Rational lhs{ 1,2 };
@@ -113,4 +119,22 @@ TEST(MathAssignOps, Division) {
 	lhs /= rhs;
 	ASSERT_EQ(lhs, answer);
 	ASSERT_THROW(lhs / (rhs - rhs), std::domain_error);
+}
+TEST(MathAssignOps, Prefix) {
+	Rational r(1, 3);
+	Rational answer = r;
+
+	++r;
+	ASSERT_NE(r, answer);
+	--r;
+	ASSERT_EQ(r, answer);
+}
+TEST(MathAssignOps, Postfix) {
+	Rational r(1, 3);
+	Rational answer = r;
+
+	r++;
+	ASSERT_NE(r, answer);
+	r--;
+	ASSERT_EQ(r, answer);
 }
