@@ -13,8 +13,8 @@ public:
 	Rational(int i);
 	Rational(double d);
 
-	operator int() const;
-	operator double()const;
+	explicit operator int() const;
+	explicit operator double()const;
 
 	int num() const;
 	void num(int nmr);

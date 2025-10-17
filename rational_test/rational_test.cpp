@@ -179,13 +179,13 @@ TEST(ConvertOps, FDouble) {
 	ASSERT_EQ(Rational(0.5), Rational(1,2));
 }
 TEST(ConvertOps, Tint) {
-	int lhs = Rational(5,1);
+	int lhs = int(Rational(5,1));
 	int rhs = 5;
 
 	ASSERT_EQ(lhs, rhs);
 }
 TEST(ConvertOps, TDouble) {
-	double lhs = Rational(1, 2);
+	double lhs = double(Rational(1, 2));
 	double rhs = .5;
 
 	ASSERT_EQ(lhs, rhs);
