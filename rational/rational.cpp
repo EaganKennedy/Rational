@@ -11,6 +11,10 @@ Rational::Rational(int NMR, int DNMR) {
 
 	update(newRational);
 }
+Rational::Rational(int i) : Rational(i,1){
+}
+Rational::Rational(double d) : Rational(d * doubleBase, doubleBase){
+}
 
 int Rational::num() const{
 	return rational.NMR;
@@ -43,6 +47,8 @@ void Rational::validate(fraction newRational) {
 		throw std::domain_error("Denominator initialized to negative integer");
 	}
 }
+
+int Rational::doubleBase = 1000000;
 
 bool operator==(Rational const& lhs, Rational const& rhs) {
 	return lhs.num() == rhs.num() && lhs.den() == rhs.den();

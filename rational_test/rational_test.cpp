@@ -169,3 +169,10 @@ TEST(MathAssignOps, Postfix) {
 	r--;
 	ASSERT_EQ(r, answer);
 }
+
+TEST(ConvertOps, FInt) {
+	ASSERT_EQ(Rational(5), Rational(5, 1));
+}
+TEST(ConvertOps, FDouble) {
+	ASSERT_EQ(Rational(0.5), Rational(1,2));
+}

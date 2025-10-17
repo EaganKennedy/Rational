@@ -10,6 +10,8 @@ class Rational {
 public:
 	Rational();
 	Rational(int NMR, int DNMR);
+	Rational(int i);
+	Rational(double d);
 
 	int num() const;
 	void num(int nmr);
@@ -38,6 +40,8 @@ private:
 	void inline validate(fraction newRational);
 
 	fraction rational;
+
+	static int doubleBase;
 };
 
 bool operator ==(Rational const& lhs, Rational const& rhs);
