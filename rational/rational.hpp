@@ -13,6 +13,9 @@ public:
 	Rational(int i);
 	Rational(double d);
 
+	operator int() const;
+	operator double()const;
+
 	int num() const;
 	void num(int nmr);
 

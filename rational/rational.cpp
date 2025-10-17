@@ -16,6 +16,15 @@ Rational::Rational(int i) : Rational(i,1){
 Rational::Rational(double d) : Rational(d * doubleBase, doubleBase){
 }
 
+Rational::operator int() const{
+	return num() / den();
+}
+
+Rational::operator double() const{
+	double d = num();
+	return d / den();
+}
+
 int Rational::num() const{
 	return rational.NMR;
 }
