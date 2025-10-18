@@ -27,12 +27,12 @@ TEST(Setters, Setting) {
 TEST(Setters, Getting) {
 	Rational r;
 
-	ASSERT_NO_THROW(r.num(3));
-	ASSERT_NO_THROW(r.den(9));
+	r.num(3);
+	r.den(9);
 
 	ASSERT_EQ(r.num(), 1);
 	ASSERT_EQ(r.den(), 3);
-	
+
 	ostringstream sout;
 	r.print(sout);
 	ASSERT_EQ(sout.str(), "1/3");
